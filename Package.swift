@@ -15,7 +15,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "DesignSystem",
-            type: isStatic ? .static : .dynamic,
+            type: .static,
             targets: ["DesignSystem"]),
     ],
     targets: [
