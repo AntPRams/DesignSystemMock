@@ -22,7 +22,12 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "DesignSystem"),
+            name: "DesignSystem",
+            swiftSettings: [
+                // Define for debugging
+                .define("BUILD_FOR_PREVIEWS", .when(configuration: .debug))
+            ]
+        ),
         .testTarget(
             name: "DesignSystemTests",
             dependencies: ["DesignSystem"]
