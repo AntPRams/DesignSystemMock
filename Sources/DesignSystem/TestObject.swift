@@ -12,3 +12,7 @@ public struct TestView: View {
         Text(text)
     }
 }
+
+public extension UIColor {
+    static let someSameRed = UIColor.red
+}

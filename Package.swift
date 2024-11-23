@@ -4,8 +4,6 @@
 import PackageDescription
 import Foundation
 
-let isStatic = ProcessInfo.processInfo.environment["STATIC_LIB"] == "1"
-
 let package = Package(
     name: "DesignSystem",
     platforms: [
@@ -15,18 +13,13 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "DesignSystem",
-            type: .static,
             targets: ["DesignSystem"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "DesignSystem",
-            swiftSettings: [
-                // Define for debugging
-                .define("BUILD_FOR_PREVIEWS", .when(configuration: .debug))
-            ]
+            name: "DesignSystem"
         ),
         .testTarget(
             name: "DesignSystemTests",
