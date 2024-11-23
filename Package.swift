@@ -2,6 +2,9 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+import Foundation
+
+let isStatic = ProcessInfo.processInfo.environment["STATIC_LIB"] == "1"
 
 let package = Package(
     name: "DesignSystem",
@@ -12,6 +15,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "DesignSystem",
+            type: isStatic ? .static : .dynamic,
             targets: ["DesignSystem"]),
     ],
     targets: [
